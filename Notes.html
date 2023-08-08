@@ -1,69 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-        body {
-            background-color: #000;
-            color: #fff;
-            font-family: Arial, sans-serif;
-        }
-
-        .container {
-            background-color: #222;
-            box-shadow: 0 0 10px rgba(3, 3, 3, 0.3);
-        }
-
-        .title {
-            text-align: center;
-            font-size: 24px;
-            margin-bottom: 20px;
-            
-        }
-
-        .LivePrices{
-            padding-left: 1%;
-            padding-top: 1%;
-            padding-bottom: 1%;
-            padding-right: 1%;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    margin: 0;
+    padding: 0;
+  }
+  #crypto-widget {
+    max-width: 400px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #343A40;
+    border: 1px solid #292E33;
+    border-radius: 10px;
+    box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.1);
+    color: #FFFFFF;
+  }
+  a {
+    color: #FFFFFF;
+    text-decoration: none;
+  }
+</style>
+<!-- Cryptocurrency Price Widget -->
+<script>
+  !function(){
+    var e=document.getElementsByTagName("script"),
+    t=e[e.length-1],
+    n=document.createElement("script");
+    function r(){
+      var e=crCryptocoinPriceWidget.init({
+        base:"USD,EUR,CNY,GBP",
+        items:"BTC,ETH,LTC,XMR,DASH,XRP,XLM,NANO",
+        backgroundColor:"343A40",
+        streaming:"1",
+        striped:"1",
+        rounded:"1",
+        boxShadow:"1",
+        border:"1"
+      });
+      t.parentNode.insertBefore(e,t)
+    }
+    n.src="https://co-in.io/widget/pricelist.js?items=BTC%2CETH%2CLTC%2CXMR%2CDASH%2CXRP%2CXLM%2CNANO",
+    n.async=!0,
+    n.readyState?n.onreadystatechange=function(){
+      "loaded"!=n.readyState&&"complete"!=n.readyState||(n.onreadystatechange=null,r())
+    }:n.onload=function(){r()},
+    t.parentNode.insertBefore(n,null)
+  }();
+</script>
+<!-- /Cryptocurrency Price Widget -->
 </head>
 <body>
-    <div class="title">
-        <p>
-            Live Prices
-        </p>
-    </div>
-    <div class="LivePrices" >
-        <script>
-            ! function() {
-                var e = document.getElementsByTagName("script"),
-                    t = e[e.length - 1],
-                    n = document.createElement("script");
-        
-                function r() {
-                    var e = crCryptocoinPriceWidget.init({
-                        base: "USD,EUR",
-                        items: "GLQ,BTC,ETH,XRP,NANO",
-                        backgroundColor: "0a2713",
-                        streaming: "1",
-                        rounded: "1",
-                        boxShadow: "9",
-                        border: "5"
-                    });
-                    t.parentNode.insertBefore(e, t)
-                }
-                n.src = "https://co-in.io/widget/pricelist.js?items=BTC%2CETH%2CLTC%2CXMR%2CDASH", 
-                n.async = !0, n.readyState ? n.onreadystatechange = function() {
-                    "loaded" != n.readyState && "complete" != n.readyState || (n.onreadystatechange = null, r())
-                } : n.onload = function() {
-                    r()
-                }, t.parentNode.insertBefore(n, null)
-            }();
-        </script>
-    </div>
+<div id="crypto-widget">
+  <!-- Widget content will be inserted here -->
+  <a href="https://currencyrate.today/" rel="noopener" target="_blank">CurrencyRate.Today</a>
+</div>
 </body>
 </html>
