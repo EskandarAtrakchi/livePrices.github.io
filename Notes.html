@@ -36,19 +36,19 @@
   </div>
     <script>
         function searchText() {
-        const searchText = document.getElementById("searchInput").value;
-        const bodyText = document.body.textContent;
+            const searchText = document.getElementById("searchInput").value;
+            const bodyText = document.body.textContent;
 
-        if (bodyText.includes(searchText)) {
-            const startIndex = bodyText.indexOf(searchText);
-            const endIndex = startIndex + searchText.length;
-            const matchingText = bodyText.substring(startIndex, endIndex);
+            if (bodyText.includes(searchText)) {
+                const startIndex = bodyText.indexOf(searchText);
+                const endIndex = startIndex + searchText.length;
+                const matchingText = bodyText.substring(startIndex, endIndex);
 
-            document.getElementById("searchResults").innerHTML = matchingText;
-        } else {
-            document.getElementById("searchResults").innerHTML = 'Does not exist! Try something different!';
+                document.getElementById("searchResults").innerHTML = matchingText;
+            } else {
+                document.getElementById("searchResults").innerHTML = 'Does not exist! Try something different!';
+            }
         }
-    }
 
     !function(){
         var e=document.getElementsByTagName("script"),
