@@ -28,45 +28,28 @@
 </head>
 <body>
     
-    <h1>Text Search Page</h1>
-  
     <input type="text" id="searchInput" placeholder="Enter text to search">
-    <button onclick="searchText()">Search</button>
-    
-    <div id="searchResults">
-        <!-- Search results will be displayed here -->
-    </div>
-    
+  <button id="searchButton" onclick="searchText()">Search</button>
+  
+  <div id="searchResults">
+    <!-- Search results will be displayed here -->
+  </div>
     <script>
         function searchText() {
-        // Get the input value
-        var searchTerm = document.getElementById('searchInput').value.toLowerCase();
-        
-        // Get all the text content on the page
-        var allText = document.body.innerText.toLowerCase();
-        
-        // Clear previous search results
-        document.getElementById('searchResults').innerHTML = '';
-        
-        // Search for the term in the text
-        if (allText.includes(searchTerm)) {
-            var searchResults = allText.split(searchTerm);
-            var updatedText = '';
-            
-            for (var i = 0; i < searchResults.length - 1; i++) {
-            updatedText += searchResults[i] + '<mark>' + searchTerm + '</mark>';
-            }
-            
-            updatedText += searchResults[searchResults.length - 1];
-            
-            // Display the updated text with highlighted search term
-            document.getElementById('searchResults').innerHTML = updatedText;
+        const searchText = document.getElementById("searchInput").value;
+        const bodyText = document.body.textContent;
+
+        if (bodyText.includes(searchText)) {
+            const startIndex = bodyText.indexOf(searchText);
+            const endIndex = startIndex + searchText.length;
+            const matchingText = bodyText.substring(startIndex, endIndex);
+
+            document.getElementById("searchResults").innerHTML = matchingText;
         } else {
-            document.getElementById('searchResults').innerHTML = 'No results found.';
+            document.getElementById("searchResults").innerHTML = 'Does not exist! Try something different!';
         }
-        }
-    </script>
-    <script>
+    }
+
     !function(){
         var e=document.getElementsByTagName("script"),
         t=e[e.length-1],
