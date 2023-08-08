@@ -27,33 +27,70 @@
   </style>
 </head>
 <body>
-</style>
-<!-- Cryptocurrency Price Widget -->
-<script>
-  !function(){
-    var e=document.getElementsByTagName("script"),
-    t=e[e.length-1],
-    n=document.createElement("script");
-    function r(){
-      var e=crCryptocoinPriceWidget.init({
-        base:"USD,EUR,CNY,GBP",
-        items:"BTC,ETH,LTC,XMR,DASH,XRP,XLM,NANO",
-        backgroundColor:"343A40",
-        streaming:"1",
-        striped:"1",
-        rounded:"1",
-        boxShadow:"1",
-        border:"1"
-      });
-      t.parentNode.insertBefore(e,t)
-    }
-    n.src="https://co-in.io/widget/pricelist.js?items=BTC%2CETH%2CLTC%2CXMR%2CDASH%2CXRP%2CXLM%2CNANO",
-    n.async=!0,
-    n.readyState?n.onreadystatechange=function(){
-      "loaded"!=n.readyState&&"complete"!=n.readyState||(n.onreadystatechange=null,r())
-    }:n.onload=function(){r()},
-    t.parentNode.insertBefore(n,null)
-  }();
-</script>
+    
+    <h1>Text Search Page</h1>
+  
+    <input type="text" id="searchInput" placeholder="Enter text to search">
+    <button onclick="searchText()">Search</button>
+    
+    <div id="searchResults">
+        <!-- Search results will be displayed here -->
+    </div>
+    
+    <script>
+        function searchText() {
+        // Get the input value
+        var searchTerm = document.getElementById('searchInput').value.toLowerCase();
+        
+        // Get all the text content on the page
+        var allText = document.body.innerText.toLowerCase();
+        
+        // Clear previous search results
+        document.getElementById('searchResults').innerHTML = '';
+        
+        // Search for the term in the text
+        if (allText.includes(searchTerm)) {
+            var searchResults = allText.split(searchTerm);
+            var updatedText = '';
+            
+            for (var i = 0; i < searchResults.length - 1; i++) {
+            updatedText += searchResults[i] + '<mark>' + searchTerm + '</mark>';
+            }
+            
+            updatedText += searchResults[searchResults.length - 1];
+            
+            // Display the updated text with highlighted search term
+            document.getElementById('searchResults').innerHTML = updatedText;
+        } else {
+            document.getElementById('searchResults').innerHTML = 'No results found.';
+        }
+        }
+    </script>
+    <script>
+    !function(){
+        var e=document.getElementsByTagName("script"),
+        t=e[e.length-1],
+        n=document.createElement("script");
+        function r(){
+        var e=crCryptocoinPriceWidget.init({
+            base:"USD,EUR,CNY,GBP",
+            items:"BTC,ETH,LTC,XMR,DASH,XRP,XLM,NANO",
+            backgroundColor:"343A40",
+            streaming:"1",
+            striped:"1",
+            rounded:"1",
+            boxShadow:"1",
+            border:"1"
+        });
+        t.parentNode.insertBefore(e,t)
+        }
+        n.src="https://co-in.io/widget/pricelist.js?items=BTC%2CETH%2CLTC%2CXMR%2CDASH%2CXRP%2CXLM%2CNANO",
+        n.async=!0,
+        n.readyState?n.onreadystatechange=function(){
+        "loaded"!=n.readyState&&"complete"!=n.readyState||(n.onreadystatechange=null,r())
+        }:n.onload=function(){r()},
+        t.parentNode.insertBefore(n,null)
+    }();
+    </script>
 </body>
 </html>
