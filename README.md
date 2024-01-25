@@ -40,8 +40,8 @@ The "My Notes" web application allows users to create and view notes in an inter
 
 ## JavaScript Logic starts here with additional comments to know hw it works
 
-```
-// JavaScript logic for My Notes web application
+
+```// JavaScript logic for My Notes web application
 
 // Function to search for text within the document
 function searchText() {
