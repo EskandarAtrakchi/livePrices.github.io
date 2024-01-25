@@ -37,3 +37,59 @@ The "My Notes" web application allows users to create and view notes in an inter
 </body>
 </html>
 ```
+
+## JavaScript Logic starts here with additional comments to know hw it works
+
+```
+// JavaScript logic for My Notes web application
+
+// Function to search for text within the document
+function searchText() {
+    const searchText = document.getElementById("searchInput").value;
+    const bodyText = document.body.textContent;
+
+    if (bodyText.includes(searchText)) {
+        const startIndex = bodyText.indexOf(searchText);
+        const endIndex = startIndex + searchText.length;
+        const matchingText = bodyText.substring(startIndex, endIndex);
+
+        document.getElementById("searchResults").innerHTML = matchingText;
+    } else {
+        document.getElementById("searchResults").innerHTML = 'Does not exist! Try something different!';
+    }
+}
+
+// Crypto widget initialization for retrieving and displaying cryptocurrency prices
+!function(){
+    var e=document.getElementsByTagName("script"),
+    t=e[e.length-1],
+    n=document.createElement("script");
+
+    function r(){
+        var e=crCryptocoinPriceWidget.init({
+            // Configuration for the crypto widget
+            base:"USD,EUR,CNY,GBP",
+            items:"BTC,ETH,PRQ,LTC,SOL,XMR,DASH,XRP,XLM,NANO,GLQ,ADA,TRX,DOT,ATOM,VET,NEAR,INJ,TWT,LINK,MATIC,NTRN",
+            backgroundColor:"343A40",
+            streaming:"1",
+            striped:"1",
+            rounded:"1",
+            boxShadow:"1",
+            border:"1"
+        });
+        t.parentNode.insertBefore(e,t)
+    }
+
+    n.src="https://co-in.io/widget/pricelist.js?items=BTC%2CETH%2CLTC%2CXMR%2CDASH%2CXRP%2CXLM%2CNANO",
+    n.async=!0,
+    n.readyState?n.onreadystatechange=function(){
+        "loaded"!=n.readyState&&"complete"!=n.readyState||(n.onreadystatechange=null,r())
+    }:n.onload=function(){r()},
+    t.parentNode.insertBefore(n,null)
+}();
+</script>
+</body>
+</html>
+
+
+```
