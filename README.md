@@ -39,7 +39,7 @@ The "My Notes" web application allows users to create and view notes in an inter
 ```
 
 ## JavaScript Logic starts here with additional comments to know hw it works
-
+## The template code for the loading function of crypto prices is taken from https://co-in.io/crypto-price-widget/
 ```javascript
 // JavaScript logic for My Notes web application
 
@@ -87,3 +87,5 @@ function searchText() {
     }:n.onload=function(){r()},
     t.parentNode.insertBefore(n,null)
 }();
+
+
